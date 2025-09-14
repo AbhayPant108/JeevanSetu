@@ -2,6 +2,7 @@ import { BackgroundGradient } from '@/components/ui/background-gradient';
 import { IconArrowAutofitContent, IconArrowRight } from '@tabler/icons-react';
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 // Import required components (you'll need to create these)
 // import { Button } from '@/components/ui/button';
 // import { Card } from '@/components/ui/card';
@@ -13,7 +14,7 @@ import Link from 'next/link';
 
 
 const PreLoginLanding = () => {
-
+  const router = useRouter()
   const features = [
     {
       icon: '📹',
@@ -45,15 +46,7 @@ const PreLoginLanding = () => {
     }
   ];
 
-  const languages = [
-    { code: 'en', name: 'English', flag: '🇺🇸' },
-    { code: 'hi', name: 'हिन्दी', flag: '🇮🇳' },
-    { code: 'gu', name: 'ગુજરાતી', flag: '🇮🇳' },
-    { code: 'te', name: 'తెలుగు', flag: '🇮🇳' },
-    { code: 'ta', name: 'தமிழ்', flag: '🇮🇳' },
-    { code: 'bn', name: 'বাংলা', flag: '🇮🇳' },
-  ];
-
+ 
   const testimonials = [
     {
       name: 'Rajesh Kumar',
@@ -103,7 +96,7 @@ const PreLoginLanding = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
-                
+                onClick={()=>{router.push('/signup')}}
                 className="px-8 py-4 bg-blue-600 cursor-pointer text-white text-lg font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-lg"
               >
                 Get Started Free
@@ -263,13 +256,13 @@ const PreLoginLanding = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              
+              onClick={()=>{router.push('/signup')}}
               className="px-8 py-4 bg-gray-100 cursor-pointer text-blue-600 text-lg font-semibold rounded-lg hover:bg-gray-100 transition-colors"
             >
               Start Your Journey
             </button>
             <button 
-              
+              onClick={()=>{router.push('/login')}}           
               className="px-8 py-4 border-2 cursor-pointer border-gray-100 text-white text-lg font-semibold rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors"
             >
               Already Have Account?
