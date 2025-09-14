@@ -14,7 +14,6 @@ export {
     NumberSignUp,
     BottomGradient,
     ThemeProvider,
-    Input,
     Header,
     Avatar,
     Navbar,
