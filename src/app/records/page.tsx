@@ -1,4 +1,5 @@
 'use client'
+import { ScrollToTop } from '@/components/index';
 import { IconDots } from '@tabler/icons-react';
 import { span } from 'motion/react-client';
 import React from 'react';
@@ -18,6 +19,7 @@ const RecordsOffline: React.FC = () => {
 
   return (
     <div className="min-h-screen p-6">
+      <ScrollToTop />
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-6 flex items-center justify-between">

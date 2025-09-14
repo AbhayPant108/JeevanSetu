@@ -1,4 +1,5 @@
 'use client'
+import { ScrollToTop } from '@/components/index';
 import React, { useState } from 'react';
 
 // Import required components
@@ -18,7 +19,9 @@ const SymptomChecker: React.FC = () => {
   ];
 
   return (
+    
     <div className="min-h-screen dark:bg-gray-900 p-6">
+      <ScrollToTop />
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-6 flex items-center justify-between">

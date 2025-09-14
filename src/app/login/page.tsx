@@ -1,14 +1,16 @@
 'use client'
 import React, { useState,useEffect } from 'react'
 import Link from 'next/link'
-import { EmailLogin ,NumberLogin , BottomGradient } from '@/components/index'
+import { EmailLogin,ScrollToTop,NumberLogin , BottomGradient } from '@/components/index'
 
 export default function Signup() {
     const [type, setType] = useState<string>("email")
   const [mounted , setMounted] = useState(false)
   useEffect(()=>setMounted(true),[])
   if(!mounted) return null
- return <div className="shadow-input mx-auto my-10 w-full max-w-md rounded-none md:dark:shadow-gray-400 p-4 md:rounded-2xl md:p-8 ">
+ return( 
+ <div className="shadow-input mx-auto my-10 w-full max-w-md rounded-none md:dark:shadow-gray-400 p-4 md:rounded-2xl md:p-8 ">
+  <ScrollToTop />
       <h2 className="text-xl text-center font-bold text-neutral-800 dark:text-neutral-200">
         Login to your Jeevansetu account
       </h2>
@@ -22,5 +24,6 @@ export default function Signup() {
         >Login with {type === "number"?"Email":"Phone Number"}
           <BottomGradient /></button>
                 </div>
+ )
 }
 
