@@ -13,7 +13,7 @@ export default function Signup() {
         Login to your Jeevansetu account
       </h2>
       <p className="mt-2 max-w-sm text-sm text-center text-neutral-600 dark:text-neutral-300">
-        Do&apos;t Have an Account ? <Link className="text-blue-500" href={'/signup'}>Create Account</Link>
+        Don&apos;t Have an Account ? <Link className="text-blue-500" href={'/signup'}>Create Account</Link>
       </p>
       {type === "email"?<EmailLogin />:<NumberLogin />}
     <button
