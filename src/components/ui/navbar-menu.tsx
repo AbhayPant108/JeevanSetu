@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { motion, ValueAnimationTransition } from "motion/react";
+import Link from "next/link";
 
 
 
@@ -129,13 +130,14 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({ children, ...rest }: {children:React.ReactNode,rest:React.ComponentProps<"a">}) => {
+export const HoveredLink = ({ children,href, ...rest }: {children:React.ReactNode,href:string,rest?:React.ComponentProps<"a">}) => {
   return (
-    <a
+    <Link
+    href={href}
       {...rest}
       className="inline-block w-full dark:hover:text-white hover:text-black "
     >
       {children}
-    </a>
+    </Link>
   );
 };

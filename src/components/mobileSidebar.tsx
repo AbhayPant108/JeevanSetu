@@ -16,6 +16,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { login } from "@/globalContext/authSlice";
+import { useRouter } from "next/navigation";
 
 export function SidebarDemo() {
   const links = [
@@ -68,6 +69,7 @@ export function SidebarDemo() {
   const {theme,setTheme} = useTheme()
   const status:boolean = useSelector((state:RootState)=>state.auth.status)
   const dispatch:AppDispatch = useDispatch()
+  const router = useRouter()
     const [mounted,setMounted] = useState<boolean|null>(false)
     useEffect(() => {
       setMounted(true);
@@ -85,11 +87,11 @@ export function SidebarDemo() {
       )}
     >
       <Sidebar open={open} setOpen={setOpen} animate={true}>
-        <MobileNav className="flex p-2 gap-x-0.5 justify-between items-center">
+        <MobileNav className="flex p-2 py-4 gap-x-0.5 justify-between items-center">
           
           <Link href={'/'} >
             <div className="flex gap-x-1 sm:gap-x-2 items-center ">
-              <Avatar className=" h-8 w-8 rounded-lg" alt="
+              <Avatar className=" h-8 w-8 rounded-lg" src="logo.jpg" alt="
               logo" />
               <h1 className="sm:text-xl text-xs font-bold ">JeevanSetu</h1>
             </div>
@@ -107,7 +109,7 @@ export function SidebarDemo() {
           
           <Select options={["english"]} className="w-16" placeholder={<IconLanguage />} />
           </div>
-          {!status?<Button onClick={()=>{dispatch(login({status:true}))}} className="md:hidden cursor-pointer text-sm px-3 py-1 ">Login</Button>:<MobileSidebar className="px-1 py-auto">
+          {!status?<Button onClick={()=>{router.push('/login')}} className="md:hidden cursor-pointer text-sm px-3 py-1 ">Login</Button>:<MobileSidebar className="px-1 py-auto">
 
           <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
             <div><img  alt="logo" /></div>

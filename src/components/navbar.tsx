@@ -9,6 +9,7 @@ import { IconMoon, IconSun, IconRobotFace } from "@tabler/icons-react";
 import React, { useEffect, useState } from "react"
 import { useDispatch ,useSelector} from "react-redux";
 import { login } from "@/globalContext/authSlice";
+import { useRouter } from "next/navigation";
 
 
 export default function NavigationMenuDemo({ className }: Readonly<{ className?: string }>) {
@@ -162,7 +163,7 @@ export default function NavigationMenuDemo({ className }: Readonly<{ className?:
 export function Header() {
   const { theme, setTheme } = useTheme()
   const status:boolean = useSelector((state:RootState)=>state.auth.status)
-  const dispatch:AppDispatch = useDispatch()
+  const router = useRouter()
   const [mounted, setMounted] = useState<boolean | null>(false)
   useEffect(() => {
     setMounted(true);
@@ -181,7 +182,7 @@ export function Header() {
       <div className="flex w-full justify-between p-2 py-1.5 lg:p-4 shadow">
         <Link href={'/'} className="outline-none">
           <div className="flex gap-x-2 items-center ">
-            <Avatar className=" w-14 h-14 rounded-2xl" alt="logo" />
+            <Avatar className=" w-14 h-14 rounded-2xl" src="logo.jpg" alt="logo" />
             <h1 className="sm:text-xl font-bold ">JeevanSetu</h1>
           </div>
         </Link>
@@ -195,7 +196,7 @@ export function Header() {
             <IconRobotFace />
           </Link>
           <Select className="" options={["English"]} placeholder="Language" />
-          {!status?<Button onClick={()=>{dispatch(login({status:true}))}} className="hidden sm:block cursor-pointer ">Login/SignUp</Button>:<Link href="/profile"><Avatar className="cursor-pointer w-8 h-8 lg:w-10 lg:h-10" alt="avatar" src="avatar.png" /></Link>}
+          {!status?<Button onClick={()=>router.push("/login")} className="hidden sm:block cursor-pointer ">Login/SignUp</Button>:<Link href="/profile"><Avatar className="cursor-pointer w-8 h-8 lg:w-10 lg:h-10" alt="avatar" src="avatar.png" /></Link>}
 
         </div>
       </div>

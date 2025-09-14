@@ -13,7 +13,6 @@ import Link from 'next/link';
 
 
 const PreLoginLanding = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState('en');
 
   const features = [
     {

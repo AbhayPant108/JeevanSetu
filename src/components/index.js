@@ -4,10 +4,15 @@ import Navbar, {Header} from './navbar'
 import Select from './select'
 import { ButtonDemo as Button} from './button'
 import { SidebarDemo as Sidebar } from './mobileSidebar'
-import Input from './input'
 import ThemeProvider  from './themeProvider'
+import {EmailSignUp,EmailLogin,NumberLogin ,BottomGradient, NumberSignUp} from './signup-and-login-form'
 
 export {
+    EmailLogin,
+    NumberLogin,
+    EmailSignUp,
+    NumberSignUp,
+    BottomGradient,
     ThemeProvider,
     Input,
     Header,
